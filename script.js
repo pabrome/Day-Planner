@@ -35,12 +35,17 @@ for (x = 0; x < hours.length; x++){
 
 //Colour coding each hour function
 function colourCode(){
-    currentHour = moment().format("H")
-    for (x = 0; x <= currentHour - 9; x++){
-        if (x == currentHour){
+    currentItem = Number(moment().format("H")) - 9
+    for (x = 0; x <= 8; x++){
+        if (x == currentItem){
             $("#input" + x).addClass("bg-danger")
         }
-        $("#input" + x).addClass("bg-secondary")
+        if (x < currentItem){
+            $("#input" + x).addClass("bg-secondary")
+        }
+        if (x > currentItem){
+            $("#input" + x).addClass("bg-success")
+        }
     }
 }
 //Initialize colour coding
